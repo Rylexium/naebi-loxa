@@ -6,5 +6,6 @@ public class fdsa {
       System.out.println("Ksixa privet");
        System.out.println("Lexa privet");
        System.out.println("Levon privet");
+           System.out.println("Ilay privet");
   }
 }
