@@ -6,6 +6,23 @@
     <title>Авторизация</title>
 </head>
 <script>
+    function isAllCorrect(){
+        if(isCorrect(document.getElementById("fieldLogin"))
+            && isCorrect(document.getElementById("fieldPass"))) {
+            postData();
+        }
+    }
+
+    function isCorrect(element){
+        if (!element.value.match(/^[a-zA-Z0-9]+$/))
+        {
+            alert('Введены недопустимые символы в полях \"Логин\" или \"Пароль\".');
+            document.getElementById("fieldPass").value = ""
+            return 0;
+        }
+        return 1;
+	}
+
     window.onbeforeunload = function() {
          sessionStorage.setItem("fieldLogin", document.getElementById("fieldLogin").value);
     }
@@ -17,7 +34,7 @@
     }
     function postData() {
         var xhr = new XMLHttpRequest();
-        var url = "http://localhost:8080/login-form";
+        var url = "/login-form";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onload = function() {
@@ -42,8 +59,8 @@
                     <p class="greeting"> Добро пожаловать! </p>
                     <input type="text" id="fieldLogin" placeholder="Логин"/>
                     <input type="password" id="fieldPass" placeholder="Пароль"/>
-                    <button onclick="postData()">Войти</button>
-                    <p class="message">Не зарегистрированы? <a href="http://localhost:8080/registration">
+                    <button onclick="isAllCorrect()">Войти</button>
+                    <p class="message">Не зарегистрированы? <a href="/registration">
                         <ins>Создайте аккаунт</ins>
                     </a></p>
                 </form>

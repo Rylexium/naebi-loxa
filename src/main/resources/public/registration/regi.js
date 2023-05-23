@@ -60,7 +60,7 @@ window.onload = function() {
 }
 function postData() {
     var xhr = new XMLHttpRequest();
-    var url = "http://localhost:8080/regi";
+    var url = "/regi";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onload = function() {

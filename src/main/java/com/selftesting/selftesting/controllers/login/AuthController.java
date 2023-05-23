@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class AuthController {
     @PostMapping("/login-form")
     public String someControllerMethod(@RequestBody RequestLoginAndPass requestLoginAndPass) {
+        System.out.println(requestLoginAndPass.getFieldLogin());
         if(requestLoginAndPass.getFieldLogin().equals("admin") && requestLoginAndPass.getFieldPass().equals("admin"))
             return "Успешно!";
         else
