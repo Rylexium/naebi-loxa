@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class RegistrationController {
     @PostMapping("/regi")
     public String registration(@RequestBody RequestLoginAndPass requestLoginAndPass) {
-        System.out.println(requestLoginAndPass.getFieldLogin());
-        System.out.println(requestLoginAndPass.getFieldPass());
-        return "success";
-        //return failed такой пользак уже есть
+        if(requestLoginAndPass.getFieldLogin().equals("admin")) {
+            return "Пользователь с таким логином уже существует!";
+        }
+        return "Регистрация произошла успешна!";
     }
 }

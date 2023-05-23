@@ -64,11 +64,14 @@ function postData() {
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onload = function() {
-            if(this.responseText == "success") {
+            if(this.responseText === "Регистрация произошла успешна!") {
                 document.getElementById("login").value = ""
                 sessionStorage.removeItem("login")
-                alert('Регистрация прошла успешно!');
             }
+
+            if(this.responseText !== "")
+                alert(this.responseText)
+
             document.getElementById("pwd_1").value = ""
             document.getElementById("pwd_2").value = ""
         };
