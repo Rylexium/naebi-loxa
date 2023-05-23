@@ -4,8 +4,7 @@ import com.selftesting.selftesting.request.RequestLoginAndPass;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class AuthController {
@@ -13,7 +12,9 @@ public class AuthController {
     public String someControllerMethod(@RequestBody RequestLoginAndPass requestLoginAndPass) {
         System.out.println(requestLoginAndPass.getFieldLogin());
         System.out.println(requestLoginAndPass.getFieldPass());
-
-        return "successful";
+        if(requestLoginAndPass.getFieldLogin().equals("admin") && requestLoginAndPass.getFieldPass().equals("admin")){
+            return "successful";
+        }
+        return null;
     }
 }
