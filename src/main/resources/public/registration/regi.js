@@ -11,18 +11,17 @@ function isCorrectLogin()
 	var login = document.querySelector('#login').value;
 	if (login.length < 5)
 	{
-		alert('Минимальная длина логина 5 символов.'); 
-		return 0;
+		alert('Минимальная длина логина 5 символов.');
 	}
 	else if (!login.match(/^[a-zA-Z0-9]+$/))
 	{
-		alert('Введены недопустимые символы.'); 
-		return 0;
+		alert('Введены недопустимые символы в поле \"Логин\".');
 	}
 	else 
 	{
 		return 1;
 	}
+    return 0;
 }
 
 function isCorrectPassword() 
@@ -35,7 +34,7 @@ function isCorrectPassword()
 	}
 	else if (!pwd_1.match(/[a-zA-Z]/)||!pwd_1.match(/[0-9]/)||!pwd_1.match(/^[a-zA-Z0-9]+$/)) 
 	{
-		alert('Введены недопустимые символы.');
+		alert('Введены недопустимые символы в поле \"Пароль\".');
 	}
 	else if (pwd_1 !== pwd_2) 
 	{
