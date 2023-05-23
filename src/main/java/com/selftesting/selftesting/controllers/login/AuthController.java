@@ -13,8 +13,10 @@ public class AuthController {
         System.out.println(requestLoginAndPass.getFieldLogin());
         System.out.println(requestLoginAndPass.getFieldPass());
         if(requestLoginAndPass.getFieldLogin().equals("admin") && requestLoginAndPass.getFieldPass().equals("admin")){
-            return "successful";
+            return "success";
         }
-        return null;
+        else {
+            return "not success";
+        }
     }
 }
