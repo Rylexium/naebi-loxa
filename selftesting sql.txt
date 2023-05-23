@@ -1,0 +1,264 @@
+CREATE TABLE public.users
+(
+    login character varying(32) NOT NULL,
+    password character varying(64) NOT NULL,
+    PRIMARY KEY (login)
+);
+
+ALTER TABLE IF EXISTS public.users
+    OWNER to postgres;
+	
+	
+INSERT INTO public.users(
+	login, password)
+	VALUES ('admin', 'eafbc1b2c6b3cdc68123c28923d898e415fb2338bb7af38927cea615e0883196'); --qwerty123
+	
+INSERT INTO public.users(
+	login, password)
+	VALUES ('apelsinka', 'fb0727a9fe60cdeebe718798047c0a29421f65618ae529bdf2a5f65b934dfc88'); --limonka
+	
+INSERT INTO public.users(
+	login, password)
+	VALUES ('limonka', '778656a6e7a8331250099d30f6b227bcf60433a6c60d427ebd4f17de28465897'); --apelsinka
+	
+	
+CREATE TABLE public.type_question
+(
+    id_type smallint NOT NULL,
+    name character varying(64) NOT NULL,
+    prompt character varying(256) NOT NULL,
+    PRIMARY KEY (id_type)
+);
+
+ALTER TABLE IF EXISTS public.type_question
+    OWNER to postgres;
+	
+
+INSERT INTO public.type_question(
+	id_type, name, prompt)
+	VALUES (1, 'Выберите один правильный ответ', '');
+
+INSERT INTO public.type_question(
+	id_type, name, prompt)
+	VALUES (2, 'Выберите несколько правильных ответов', '');
+
+INSERT INTO public.type_question(
+	id_type, name, prompt)
+	VALUES (3, 'Сопоставьте значения из двух списков', '');
+
+INSERT INTO public.type_question(
+	id_type, name, prompt)
+	VALUES (4, 'Напишите свой ответ', '');
+
+
+
+CREATE TABLE public.subject
+(
+    id_subject smallint NOT NULL,
+    name character varying(40) NOT NULL,
+    PRIMARY KEY (id_subject)
+);
+
+ALTER TABLE IF EXISTS public.subject
+    OWNER to postgres;
+
+
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (1, 'Русский язык');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (2, 'Литература');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (3, 'Математика');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (4, 'Иностранный язык');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (5, 'История');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (6, 'Физическая культура');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (7, 'Музыка');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (8, 'Технология');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (9, 'Химия');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (10, 'Биология');
+
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (11, 'Физика');
+
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (12, 'Экология');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (13, 'География');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (14, 'Естествознания');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (15, 'Астрономия');
+
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (16, 'Окружающий мир');
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (17, 'Обществознание');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (18, 'Алгебра');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (19, 'Геометрия');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (20, 'Информатика (ИКТ)');
+	
+INSERT INTO public.subject(
+	id_subject, name)
+	VALUES (21, 'Основы безопасности жизнедеятельности');
+	
+
+
+CREATE TABLE public.grade
+(
+    id_grade smallint NOT NULL,
+    PRIMARY KEY (id_grade)
+);
+
+ALTER TABLE IF EXISTS public.grade
+    OWNER to postgres;
+	
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (1);
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (2);
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (3);
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (4);
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (5);
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (6);
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (7);
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (8);
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (9);
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (10);
+	
+INSERT INTO public.grade(
+	id_grade)
+	VALUES (11);
+	
+	
+	
+	
+CREATE TABLE public.test
+(
+    id_test integer NOT NULL,
+    name character varying(128) NOT NULL,
+    id_subject smallint NOT NULL,
+    id_grade smallint NOT NULL,
+    PRIMARY KEY (id_test),
+    FOREIGN KEY (id_subject)
+        REFERENCES public.subject (id_subject) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        NOT VALID,
+    FOREIGN KEY (id_grade)
+        REFERENCES public.grade (id_grade) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        NOT VALID
+);
+
+ALTER TABLE IF EXISTS public.test
+    OWNER to postgres;
+	
+	
+INSERT INTO public.test(
+	id_test, name, id_subject, id_grade)
+	VALUES (1, 'Решите уравнение', 3, 1);
+	
+INSERT INTO public.test(
+	id_test, name, id_subject, id_grade)
+	VALUES (2, 'Подчеркните подлежащие и сказуемое', 1, 2);
+	
+	
+	
+	
+	
+(
+    id_question integer NOT NULL,
+    id_test integer NOT NULL,
+    text character varying(512) NOT NULL,
+    id_type_question smallint NOT NULL,
+    answer character varying(128) NOT NULL,
+    points smallint NOT NULL,
+    PRIMARY KEY (id_question),
+    FOREIGN KEY (id_test)
+        REFERENCES public.test (id_test) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        NOT VALID,
+    FOREIGN KEY (id_type_question)
+        REFERENCES public.type_question (id_type) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        NOT VALID
+);
+
+ALTER TABLE IF EXISTS public.question
+    OWNER to postgres;
