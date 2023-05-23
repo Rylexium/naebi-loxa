@@ -12,11 +12,7 @@ public class RegistrationController {
     public String registration(@RequestBody RequestLoginAndPass requestLoginAndPass) {
         System.out.println(requestLoginAndPass.getFieldLogin());
         System.out.println(requestLoginAndPass.getFieldPass());
-        if(requestLoginAndPass.getFieldLogin().equals("admin") && requestLoginAndPass.getFieldPass().equals("admin")){
-            return "success";
-        }
-        else {
-            return "gavno";
-        }
+        return "success";
+        //return failed такой пользак уже есть
     }
 }

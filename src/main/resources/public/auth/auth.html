@@ -22,10 +22,10 @@
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onload = function() {
                 if(this.responseText == "success") {
-                    document.getElementById("fieldLogin").value = ''
+                    document.getElementById("fieldLogin").value = ""
                     sessionStorage.removeItem("fieldLogin")
                 }
-                document.getElementById("fieldPass").value = ''
+                document.getElementById("fieldPass").value = ""
                 alert(this.responseText);
             };
         var data = JSON.stringify({

@@ -98,7 +98,7 @@
 }
 body {
 background-image: url(/auth/Back.png);
-background-position: center center;
+background-position: top center;
   /*background: #ADD4E0;
   background: rgb(173, 212, 224);*/
   font-family: "Roboto", sans-serif;

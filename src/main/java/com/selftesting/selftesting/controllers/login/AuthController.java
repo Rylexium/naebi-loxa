@@ -10,13 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class AuthController {
     @PostMapping("/login-form")
     public String someControllerMethod(@RequestBody RequestLoginAndPass requestLoginAndPass) {
-        System.out.println(requestLoginAndPass.getFieldLogin());
-        System.out.println(requestLoginAndPass.getFieldPass());
-        if(requestLoginAndPass.getFieldLogin().equals("admin") && requestLoginAndPass.getFieldPass().equals("admin")){
-            return "success";
-        }
-        else {
-            return "not success";
-        }
+        if(requestLoginAndPass.getFieldLogin().equals("admin") && requestLoginAndPass.getFieldPass().equals("admin"))
+            return "Успешно!";
+        else
+            return "Неверный логин или пароль!";
     }
 }

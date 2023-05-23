@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<link href = "/registration/regi.css" rel = "stylesheet">
+	<meta charset="UTF-8">
+	<title>Регистрация</title>
+</head>
+<body>
+	<script src="/registration/regi.js"></script>
+	<div class="regi-page">
+		<div class="form">
+			<form class="regi-form" onsubmit="return false">
+				<p class = "greeting"> Регистрация </p>
+				<p class = "attention_main">Логин должен удовлетворять следующим требованиям:</p>
+				<p class = "attention">1) Минимальное количество символов - 5
+				<br>2) Логин должен состоять из букв латинского алфавита и цифр</p>
+				<input id="login" type="text" placeholder="Логин"/>
+				<p class = "attention_main"> Пароль должен удовлетворять следующим требованиям</p>
+				<p class = "attention">1) Минимальное количество символов - 8
+				<br>2) Логин должен состоять из букв латинского алфавита и цифр
+				<br>3) Логин обязан содержать хотя бы одну цифру и букву</p>
+				<input id="pwd_1" type="password" placeholder="Пароль"/>
+				<input id="pwd_2" type="password" placeholder="Повторите пароль"/>
+				<button onclick="isCorrect();">Регистрация</button>
+				<p class="message">Зарегистрированы? <a href="#"><ins>Войдите в аккаунт</ins></a></p>
+			</form>
+		</div>
+	</div>
+</body>
