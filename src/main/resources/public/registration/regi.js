@@ -1,8 +1,9 @@
 function isCorrect() 
 {
-	if (isCorrectLogin()&&isCorrectPassword()) 
+	if (isCorrectLogin() && isCorrectPassword())
 	{
 	    postData();
+	    document.location.href = "/auth"
 	}
 }
 
@@ -77,7 +78,7 @@ function postData() {
         };
     var data = JSON.stringify({
             "fieldLogin": document.getElementById("login").value,
-            "fieldPass": document.getElementById("pwd_1").value
+            "fieldPass": String(CryptoJS.SHA3(document.getElementById("pwd_1").value, { outputLength: 256 }))
          });
     xhr.send(data);
 }

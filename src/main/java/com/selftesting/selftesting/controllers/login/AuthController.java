@@ -1,17 +1,19 @@
 package com.selftesting.selftesting.controllers.login;
 
+import com.selftesting.selftesting.service.auth.AuthService;
 import com.selftesting.selftesting.request.RequestLoginAndPass;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 @RestController
+@RequiredArgsConstructor
 public class AuthController {
+    private final AuthService authService;
     @PostMapping("/login-form")
     public String someControllerMethod(@RequestBody RequestLoginAndPass requestLoginAndPass) {
-        System.out.println(requestLoginAndPass.getFieldLogin());
-        if(requestLoginAndPass.getFieldLogin().equals("admin") && requestLoginAndPass.getFieldPass().equals("admin"))
+        if(authService.auth(requestLoginAndPass.getFieldLogin(), requestLoginAndPass.getFieldPass()))
             return "Успешно!";
         else
             return "Неверный логин или пароль!";

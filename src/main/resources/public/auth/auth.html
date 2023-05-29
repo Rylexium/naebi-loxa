@@ -5,6 +5,10 @@
     <link href="/auth/auth.css" rel="stylesheet"/>
     <title>Авторизация</title>
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/x64-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script>
     function isAllCorrect(){
         if(isCorrect(document.getElementById("fieldLogin"))
@@ -14,8 +18,7 @@
     }
 
     function isCorrect(element){
-        if (!element.value.match(/^[a-zA-Z0-9]+$/))
-        {
+        if (!element.value.match(/^[a-zA-Z0-9]+$/)) {
             alert('Введены недопустимые символы в полях \"Логин\" или \"Пароль\".');
             document.getElementById("fieldPass").value = ""
             return 0;
@@ -47,7 +50,7 @@
             };
         var data = JSON.stringify({
                 "fieldLogin": document.getElementById("fieldLogin").value,
-                "fieldPass": document.getElementById("fieldPass").value
+                "fieldPass": String(CryptoJS.SHA3(document.getElementById("fieldPass").value, { outputLength: 256 }))
              });
         xhr.send(data);
     }
