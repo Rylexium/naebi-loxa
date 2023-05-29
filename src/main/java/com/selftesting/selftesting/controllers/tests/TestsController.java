@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class TestsController {
-    @PostMapping("/tests")
+    @PostMapping("/btest")
     public String someMethod() {
 
         return "fasdfs";
