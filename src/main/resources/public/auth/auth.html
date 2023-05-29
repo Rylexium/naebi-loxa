@@ -9,6 +9,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/x64-core.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
     function isAllCorrect(){
         if(isCorrect(document.getElementById("fieldLogin"))
@@ -41,12 +43,26 @@
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onload = function() {
-                if(this.responseText == "success") {
+                var response = JSON.parse(this.responseText);
+                if(response.status == "success") {
                     document.getElementById("fieldLogin").value = ""
                     sessionStorage.removeItem("fieldLogin")
+                    sessionStorage.setItem("token", response.token);
+                    console.log(response.token);
+
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", "/atest", true);
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    xhr.setRequestHeader("Authorization", 'Bearer ' + response.token);
+                    xhr.onload = function() {
+                        alert(this.responseText)
+                    }
+                    xhr.send(null)
+
                 }
                 document.getElementById("fieldPass").value = ""
-                alert(this.responseText);
+                alert(response.message);
             };
         var data = JSON.stringify({
                 "fieldLogin": document.getElementById("fieldLogin").value,

@@ -24,15 +24,15 @@ public class AuthController {
     private final JwtService jwtService;
 
     @PostMapping("/login-form")
-    public ResponseEntity<HashMap<String, Object>> authenticate(
-            @RequestBody RequestLoginAndPass requestLoginAndPass) {
+    public ResponseEntity<HashMap<String, Object>> authenticate(@RequestBody RequestLoginAndPass requestLoginAndPass) {
 
         if (authService.auth(requestLoginAndPass.getFieldLogin(), requestLoginAndPass.getFieldPass())) {
             final UserDetails user = userDetailsService.loadUserByUsername(
                     requestLoginAndPass.getFieldLogin());
             return ResponseEntity.ok(new HashMap<>() {
                 {
-                    put("status", "Успешно");
+                    put("status", "success");
+                    put("message", "Успешно");
                     put("token", jwtService.generateToken(user));
                 }
             });
@@ -40,7 +40,8 @@ public class AuthController {
 
         return ResponseEntity.status(400).body(new HashMap<String, Object>() {
             {
-                put("status", "Неправильный логин или пароль");
+                put("status", "error");
+                put("message", "Неправильный логин или пароль");
             }
         });
     }
