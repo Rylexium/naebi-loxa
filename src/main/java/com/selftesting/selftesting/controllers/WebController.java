@@ -14,4 +14,9 @@ public class WebController {
     public String registration() {
         return "registration/regi.html";
     }
+
+    @GetMapping("/tests")
+    public String tests() {
+        return "tests/tests.html";
+    }
 }

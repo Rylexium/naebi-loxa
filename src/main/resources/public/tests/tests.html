@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<script src="tests/tests.js"></script>
+    <link href = "tests/tests.css" rel = "stylesheet">
+    <meta charset="UTF-8">
+    <title>Тесты</title>
+</head>
+<body>
+<div class="topnav">
+	<a><img src = "tests/icon.png"> </img></a>
+	<a><input type="password" id = "pass"/></a>
+	<a><button class = "top_but" onclick = "f1()">Результаты</button></a>
+	<a><button class = "top_but" onclick = "f2()">Выход</button></a>
+</div>
+<!--
+<div class="login-page">
+	<div class="form">
+		<form class="login-form">
+			<p class = "greeting"> Добро пожаловать! </p>
+			<input type="text" placeholder="Логин"/>
+			<input type="password" placeholder="Пароль"/>
+			<button>Войти</button>
+			<p class="message">Не зарегистрированы? <a href="#"><ins>Создайте аккаунт</ins></a></p>
+		</form>
+	</div>
+</div> -->
+<div>
+	<form class = "main">
+	<a>Фильрация по предмету</a>
+	<select id="subject" class = "main_sel">
+		<option value="1" selected>Русский язык</option>
+		<option value="2">Литература</option>
+		<option value="3">Математика</option>
+		<option value="4">Иностранный язык</option>
+		<option value="5">История</option>
+		<option value="6">Физическая культура</option>
+		<option value="7">Музыка</option>
+		<option value="8">Технология</option>
+		<option value="9">Химия</option>
+		<option value="10">Биология</option>
+		<option value="11">Физика</option>
+		<option value="12">Экология</option>
+		<option value="13">География</option>
+		<option value="14">Естествознание</option>
+		<option value="15">Астрономия</option>
+		<option value="16">Окружающий мир</option>
+		<option value="17">Обществознание</option>
+		<option value="18">Алгебра</option>
+		<option value="19">Геометрия</option>
+		<option value="20">Информатика</option>
+		<option value="21">Основы безопасности и жизнедеятельности</option>
+	</select>
+	<a>и классу</a>
+	<select id="grade" class = "main_sel">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="11" selected>11</option>	
+	</select>
+	<button class = "top_but" onclick = "f3()">Поиск</button>
+	<table>
+<tr><th>Выберите тест</th></tr> <!--ряд с ячейками заголовков-->
+<tr><td>
+<form class = "tab_form"> 
+	
+</form>
+</td></tr> <!--ряд с ячейками тела таблицы-->
+</table>
+	</form>
+</div>
+</body>
+<script>
+	var input = document.querySelector('#pass');
+	input.addEventListener("keyup", function(event) {
+	if (event.keyCode === 13) {
+	event.preventDefault();
+	alert(input.value);
+	  }
+});
+</script>
