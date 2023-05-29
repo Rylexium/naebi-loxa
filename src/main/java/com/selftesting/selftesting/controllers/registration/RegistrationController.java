@@ -13,8 +13,6 @@ public class RegistrationController {
     private final AuthService authService;
     @PostMapping("/regi")
     public String registration(@RequestBody RequestLoginAndPass requestLoginAndPass) {
-        System.out.println(requestLoginAndPass.getFieldLogin());
-        System.out.println(requestLoginAndPass.getFieldPass());
         if(authService.is_user_exists(requestLoginAndPass.getFieldLogin())) {
             return "Пользователь с таким логином уже существует!";
         }
