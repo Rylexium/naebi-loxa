@@ -16,8 +16,7 @@ public class TestsController {
     private final TestsService testsService;
     @PostMapping("/tests")
     public Object someMethod(@RequestBody RequestSubjectAndGrade request) {
-        var list = testsService.findByIdSubjectAndIdGrade(request.getSubject(), request.getGrade());
-        return list;
+        return testsService.findByIdSubjectAndIdGrade(request.getSubject(), request.getGrade());
     }
 
 }
