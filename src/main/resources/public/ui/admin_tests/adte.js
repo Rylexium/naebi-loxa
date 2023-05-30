@@ -1,11 +1,11 @@
 function f1() {
-	alert("Hello!");
+	window.location.href = '/adus';
 }
 function f2() {
-	alert("Goodbye!");
+	window.location.href = '/tests';
+    sessionStorage.removeItem("is_admin");
 }
 function f3() {
-
 	postData1();
 }
 function f4() {

@@ -1,11 +1,11 @@
 function f1() {
-	alert("Hello!");
+	window.location.href = '/adte';
 }
 function f2() {
-	alert("Goodbye!");
+    window.location.href = '/tests';
+    sessionStorage.removeItem("is_admin");
 }
 function f3() {
-
 	postData1();
 }
 function f4() {
@@ -71,3 +71,5 @@ function postData2(data) {
 }
 if(sessionStorage.getItem("token") == null)
     window.location.href = '/auth';
+if(sessionStorage.getItem("is_admin") === null)
+    window.location.href = '/tests';

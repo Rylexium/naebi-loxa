@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 	<script src="ui/admin_tests/adte.js"></script>
-    <link href = "adte.css" rel = "stylesheet">
+    <link href = "ui/admin_tests/adte.css" rel = "stylesheet">
     <meta charset="UTF-8">
     <title>Редактор тестов</title>
 </head>
@@ -22,4 +22,8 @@
 </body>
 <script>
 	document.onload = f4();
+	if(sessionStorage.getItem("token") === null)
+    	window.location.href = '/auth';
+   	if(sessionStorage.getItem("is_admin") === null)
+   		window.location.href = '/tests';
 </script>

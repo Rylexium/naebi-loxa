@@ -1,9 +1,12 @@
 function f1() {
+    sessionStorage.setItem("subject", document.querySelector('#subject').value)
+    sessionStorage.setItem("grade", document.querySelector('#grade').value)
 	window.location.href = '/teso';
 }
 function f2() {
 	alert("Goodbye!");
 	sessionStorage.removeItem("token");
+	sessionStorage.removeItem("is_admin");
 	window.location.href = '/auth';
 }
 function f3() { <!--  document.getElementById(“subject”).value; -->
@@ -42,15 +45,14 @@ function postData(dictSubjectAndGrade) {
 	};
 	xhr.send(JSON.stringify(dictSubjectAndGrade));
 }
-function stringToHash(string) {
-	var hash = 0;
-	if (string.length == 0) return hash;
-	for (i = 0; i < string.length; i++) {
-		char = string.charCodeAt(i);
-		hash = ((hash << 5) - hash) + char;
-		hash = hash & hash;
-	}            
-	return hash;
-}
+
 if(sessionStorage.getItem("token") == null)
     window.location.href = '/auth';
+
+sessionStorage.removeItem("is_admin")
+
+//if(sessionStorage.getItem("subject") !== null)
+//    document.getElementById('subject').getElementsByTagName('option')[sessionStorage.getItem("subject")].selected = 'selected'
+//
+//if(sessionStorage.getItem("grade") !== null)
+//    document.getElementById('grade').getElementsByTagName('option')[sessionStorage.getItem("grade")].selected = 'selected'

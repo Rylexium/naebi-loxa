@@ -1,9 +1,12 @@
 var obj;
 var max_sum = 0;
 var n = 0;
+
 function f1() {
-	if (confirm('Вы уверены, что хотите закрыть этот тест?'))
-	{ /*Переход на страницу с тестами*/}
+	if (confirm('Вы уверены, что хотите закрыть этот тест?')) {
+	    /*Переход на страницу с тестами*/
+	    window.location.href = '/tests';
+	}
 }
 function f2() {
 
@@ -18,7 +21,8 @@ function f2() {
 	}
 }
 function f3(jsonFromServer) {
-	obj = JSON.parse(jsonFromServer)'[{"type":1,"comment":"one answer","question":"2+2=?","answers":["1", "2", "3", "4", "5"],"ranswer": "4","points": 10},{"type":3,"comment":"matching","question":"choose right: a)2+2=?;  b)1+1=?;  c)3+3=?;","answers":["1", "2", "3", "4", "5", "6"],"ranswer": "426","points": 100},{"type":4,"comment":"write correct","question":"7+7=?","answers":[],"ranswer": "49","points": 200}]');
+    //obj = JSON.parse(jsonFromServer)
+	obj = JSON.parse('[{"type":1,"comment":"one answer","question":"2+2=?","answers":["1", "2", "3", "4", "5"],"ranswer": "4","points": 10},{"type":3,"comment":"matching","question":"choose right: a)2+2=?;  b)1+1=?;  c)3+3=?;","answers":["1", "2", "3", "4", "5", "6"],"ranswer": "426","points": 100},{"type":4,"comment":"write correct","question":"7+7=?","answers":[],"ranswer": "49","points": 200}]');
 	var Table = document.getElementById("dynamic");
 	Table.innerHTML = "";
 	var per = document.querySelector('#dynamic');

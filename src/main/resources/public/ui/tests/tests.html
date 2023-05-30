@@ -60,16 +60,22 @@
 	</form>
 </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/x64-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script>
 	var input = document.querySelector('#pass');
 	input.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
 		event.preventDefault();
-		hash = stringToHash(input.value);
-		if(hash == "2079042995")
-			alert("Вы вошли успешно");
+		var hash = String(CryptoJS.SHA3(input.value, { outputLength: 256 }));
+		if(hash == "64e604787cbf194841e7b68d7cd28786f6c9a0a3ab9f8b0a0e87cb4387ab0107"){
+			sessionStorage.setItem("is_admin", true)
+			window.location.href = '/adte';
+		}
 		else
-			alert("Ты пидор!");
+			alert("Тебе никогда не получить админа! БУГАГАГАГА!");
 	}
 });
 </script>
