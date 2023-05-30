@@ -19,4 +19,19 @@ public class WebController {
     public String tests() {
         return "ui/tests/tests.html";
     }
+
+    @GetMapping("/teso")
+    public String teso() {
+        return "ui/test_solution/teso.html";
+    }
+
+    @GetMapping("/adus")
+    public String adus() {
+        return "ui/admin_users/adus.html";
+    }
+
+    @GetMapping("/adte")
+    public String adte() {
+        return "ui/admin_tests/adte.html";
+    }
 }

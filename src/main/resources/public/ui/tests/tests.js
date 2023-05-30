@@ -13,4 +13,3 @@ function f3() { <!--  document.getElementById(“subject”).value; -->
 }
 if(sessionStorage.getItem("token") == null)
     window.location.href = '/auth';
-alert(sessionStorage.getItem("token"))

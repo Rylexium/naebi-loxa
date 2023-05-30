@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.topnav { /*Используется*/
+	margin-left: -11px;
+	width: 1875px;
+	background-color: #ffffff;
+	height: 60px;
+	text-align: center;
+}
+.topnav a { /*Используется*/
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  margin: 0px 50px 0px 50px;
+  vertical-align: middle;
+  color: #000000;
+}
+.top_but{ /*Используется*/
+	background: #0e92ba;
+	border-color: #0C88AD;
+	color: #ffffff;
+	font-size: 30px;
+	font-family: "Roboto", sans-serif;
+	border-radius: 3px;
+}
+.top_but:hover { /*Используется*/
+	background: #ffffff;
+	border-color: #0C88AD;
+	color: #0e92ba;
+	font-size: 30px;
+	font-family: "Roboto", sans-serif;
+	border-radius: 3px;
+}
+#pass { /*Используется*/
+	font-size: 30px;
+	width: 200px;
+}
+.main_sel {
+	font-size: 25px;
+	color: #000000;
+	font-family: "Roboto", sans-serif;
+}
+.main {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	background: rgba(66, 176, 210, 0.8);;
+	border-style: double;
+	border-color: #0C88AD;
+	border-width: 2px;
+	border-radius: 20px;
+	padding: 10px;
+	width: 1300px;
+	height: 750px;
+	text-align: center;
+	position: relative;
+}
+.main a {
+	font-family: "Roboto", sans-serif;
+	font-size: 30px;
+	margin: 0px 10px 0px 10px;
+	color: #ffffff;
+}
+table {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	border-spacing: 0px;
+	width: 1260px;
+	height: 650px;
+	font-family: "Roboto", sans-serif;
+	font-size: 30px;
+	color: #ffffff;
+	display: block;
+	border-color: #ffffff;
+	overflow-x: auto;
+	white-space: nowrap;
+	overflow: scroll; /* Scrollbar are always visible */
+	overflow: auto;   /* Scrollbar is displayed as it's needed */
+}
+td {
+	padding-left: 20px;
+    background: #0e92ba;
+    border: 3px;
+    border-color: #ffffff;
+    text-align: left;
+    width: 1260px;
+	height: 100px;
+	white-space: normal;
+   }
+table tr:hover td {
+	background: #ffffff;
+	color: #0e92ba;
+}
+table button {
+	font-family: "Roboto", sans-serif;
+	font-size: 20px;
+	background: #0e92ba;
+	color: #ffffff;
+	border-color: #ffffff;
+	height: 100px;
+	width: 100px;
+}
+table button:hover {
+	background: #ffffff;
+	color: #0e92ba;
+}
+body { /*Используется*/
+background-image: url(/auth/Back.png);
+background-position: top center;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
