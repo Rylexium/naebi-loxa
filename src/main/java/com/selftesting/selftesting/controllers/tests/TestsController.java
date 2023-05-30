@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TestsController {
     private final TestsService testsService;
-    @PostMapping("/tests")
+    @PostMapping("api/tests")
     public Object someMethod(@RequestBody RequestSubjectAndGrade request) {
         return testsService.findByIdSubjectAndIdGrade(request.getSubject(), request.getGrade());
     }

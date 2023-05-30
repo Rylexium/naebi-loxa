@@ -37,16 +37,17 @@ function f4(jss) {
 }
 function postData(dictSubjectAndGrade) {
 	var xhr = new XMLHttpRequest();
-	var url = "/tests";
+	var url = "api/tests";
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
 	xhr.onload = function() {
 		f4(this.responseText);
 	};
 	xhr.send(JSON.stringify(dictSubjectAndGrade));
 }
 
-if(sessionStorage.getItem("token") == null)
+if(sessionStorage.getItem("token") === null)
     window.location.href = '/auth';
 
 sessionStorage.removeItem("is_admin")

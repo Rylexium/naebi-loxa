@@ -8,8 +8,8 @@ function f2() {
 function f3() {
 	postData1();
 }
-function f4() {
-	var obj = JSON.parse('[{"login": "1"},{"login": "532165121"}]');
+function f4(jsonUsersFromServer) {
+	var obj = JSON.parse(jsonUsersFromServer); //JSON.parse('[{"login": "1"},{"login": "532165121"}]');
 	var Table = document.getElementById("dynamic");
 	Table.innerHTML = "";
 	var per = document.querySelector('#dynamic');
@@ -37,8 +37,9 @@ function f4() {
 			if (confirm('Вы уверены, что хотите удалить этого пользователя?')){
 				var user = {
 					login : this.parentNode.id
-				};
-				alert(JSON.stringify(user));/*Удаление пользоваетеля*/
+				}; /*Удаление пользоваетеля*/
+				postData2({ login : this.parentNode.id })
+
 			}
 		};
 		row.id = obj[i].login;
@@ -48,26 +49,28 @@ function f4() {
 		per.appendChild(row);
 	}
 }
-function postData1() {
+function postData1() { //получение список пользователей
 	var xhr = new XMLHttpRequest();
-	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
-	xhr.open("POST", url, true);
+	var url = "/api/admin/users";
+	xhr.open("GET", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
 	xhr.onload = function() {
 		f4(this.responseText);
 	};
-	var data = JSON.stringify(tests);
-	xhr.send(data);
+	xhr.send(null);
 }
-function postData2(data) {
+function postData2(data) { //запрос на удаление пользователя по id
 	var xhr = new XMLHttpRequest();
-	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
-	xhr.open("POST", url, true);
+	var url = "/api/admin/users"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
+	xhr.open("DELETE", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
+    alert(JSON.stringify(data))
 	xhr.onload = function() {
-		return this.responseText;
+		//pass after deleted user
 	};
-	xhr.send(data);
+	xhr.send(JSON.stringify(data));
 }
 if(sessionStorage.getItem("token") == null)
     window.location.href = '/auth';

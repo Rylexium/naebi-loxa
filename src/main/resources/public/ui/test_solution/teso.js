@@ -79,6 +79,7 @@ function postData1() {
 	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
 	xhr.onload = function() {
 		alert(this.responseText)
 		//f3(this.responseText);
@@ -91,6 +92,7 @@ function postData2(data) {
 	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
 	xhr.onload = function() {
 		return this.responseText;
 	};
