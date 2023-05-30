@@ -15,8 +15,8 @@ public class WebController {
         return "registration/regi.html";
     }
 
-    @GetMapping("/ui/tests")
+    @GetMapping("/tests")
     public String tests() {
-        return "/ui/tests/tests.html";
+        return "ui/tests/tests.html";
     }
 }

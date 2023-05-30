@@ -11,3 +11,6 @@ function f3() { <!--  document.getElementById(“subject”).value; -->
     alert(per1);
     alert(per2);
 }
+if(sessionStorage.getItem("token") == null)
+    window.location.href = '/auth';
+alert(sessionStorage.getItem("token"))
