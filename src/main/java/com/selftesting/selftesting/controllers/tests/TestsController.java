@@ -1,5 +1,6 @@
 package com.selftesting.selftesting.controllers.tests;
 
+import com.selftesting.selftesting.request.RequestPostResultTest;
 import com.selftesting.selftesting.request.RequestSubjectAndGrade;
 import com.selftesting.selftesting.service.tests.TestsService;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +20,10 @@ public class TestsController {
         return testsService.findTestById(idTest);
     }
 
+
+    @PostMapping("api/tests/result")
+    public void saveTestResult(@RequestBody RequestPostResultTest request) {
+        testsService.saveTestResult(request.getLogin(), request.getIdTest(), request.getPoints());
+    }
 
 }

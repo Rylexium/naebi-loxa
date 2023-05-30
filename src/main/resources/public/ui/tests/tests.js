@@ -25,7 +25,8 @@ function f4(jss) {
 		let row = document.createElement('tr');
 		row.id = obj[i].idTest;
 		row.onclick = function() {
-            alert(this.id); //по этому id получаю тест
+            sessionStorage.setItem("id_test", this.id)
+            window.location.href = '/teso';
 		};
 		let data_1 = document.createElement('td');
 		data_1.innerHTML = obj[i].name;

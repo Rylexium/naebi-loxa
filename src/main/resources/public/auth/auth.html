@@ -12,8 +12,7 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-	sessionStorage.removeItem("token");
-	sessionStorage.removeItem("is_admin");
+	sessionStorage.clear()
 
     function isAllCorrect(){
         if(isCorrect(document.getElementById("fieldLogin"))
@@ -48,9 +47,11 @@
         xhr.onload = function() {
                 var response = JSON.parse(this.responseText);
                 if(response.status == "success") {
-                    document.getElementById("fieldLogin").value = ""
                     sessionStorage.removeItem("fieldLogin")
                     sessionStorage.setItem("token", response.token);
+                    sessionStorage.setItem("login", document.getElementById("fieldLogin").value);
+
+                    document.getElementById("fieldLogin").value = ""
                     window.location.href = '/tests';
                 }
                 else {

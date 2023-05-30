@@ -3,8 +3,10 @@ package com.selftesting.selftesting.service.tests;
 import com.selftesting.selftesting.dto.AnswerDto;
 import com.selftesting.selftesting.dto.QuestionDto;
 import com.selftesting.selftesting.entity.Test;
+import com.selftesting.selftesting.entity.TestUser;
 import com.selftesting.selftesting.repo.AnswerOptionsRepository;
 import com.selftesting.selftesting.repo.TestRepository;
+import com.selftesting.selftesting.repo.TestUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +19,15 @@ import java.util.Map;
 public class TestsService {
     private final TestRepository testRepository;
     private final AnswerOptionsRepository answerOptionsRepository;
+    private final TestUserRepository testUserRepository;
 
     public List<Test> findByIdSubjectAndIdGrade(Integer idSubject, Integer idGrade) {
         return testRepository.findByIdSubjectAndIdGrade(idSubject, idGrade);
     }
 
+    public void saveTestResult(String login, Short idTest, Short points) {
+        testUserRepository.save(new TestUser(login, idTest, points));
+    }
 
     public Object findTestById(Integer idTest){
         List<QuestionDto> questionDtoList = new ArrayList<>();

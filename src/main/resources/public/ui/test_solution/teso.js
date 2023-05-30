@@ -9,24 +9,25 @@ function f1() {
 	}
 }
 function f2() {
-
-	if (confirm('Вы уверены, что хотите отправить этот тест на проверку?'))
-	{ var sum = 0;
-		for (let i = 0; i < n; i++)
-		{
+	if (confirm('Вы уверены, что хотите отправить этот тест на проверку?')) {
+	    var sum = 0;
+		for (let i = 0; i < n; i++) {
 			if(document.getElementById(`${i}`).value == obj[i].ranswer)
 				sum+= obj[i].points;
 		}
 		alert(`У вас ${sum}/${max_sum}`);
+		var json = {
+		    idTest: sessionStorage.getItem("id_test"),
+		    login: sessionStorage.getItem("login"),
+		    points: sum
+		}
+		postData2(JSON.stringify(json))
+		//отсюда отправлять результат
+        window.location.href = '/tests';
 	}
 }
 function f3(jsonFromServer) {
     obj = JSON.parse(jsonFromServer)
-	//obj = JSON.parse('
-	//[{"type":1,"comment":"one answer","question":"2+2=?","answers":["1", "2", "3", "4", "5"],"ranswer": "4","points": 10},
-	//{"type":3,"comment":"matching","question":"choose right: a)2+2=?;  b)1+1=?;  c)3+3=?;","answers":["1", "2", "3", "4", "5", "6"],"ranswer": "426","points": 100},
-	//{"type":4,"comment":"write correct","question":"7+7=?","answers":[],"ranswer": "49","points": 200}]');
-
 	var Table = document.getElementById("dynamic");
 	Table.innerHTML = "";
 	var per = document.querySelector('#dynamic');
@@ -80,20 +81,19 @@ function f3(jsonFromServer) {
 }
 function getTestData() {
 	var xhr = new XMLHttpRequest();
-	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
+	var url = "/api/tests?idTest=" + sessionStorage.getItem("id_test");
 	xhr.open("GET", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
 	xhr.onload = function() {
-		alert(this.responseText)
-		//f3(this.responseText);
+		f3(this.responseText);
 	};
-	var data = JSON.stringify(tests);
-	xhr.send(data);
+	xhr.send(null);
 }
 function postData2(data) {
+    alert(data)
 	var xhr = new XMLHttpRequest();
-	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
+	var url = "/api/tests/result";
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
