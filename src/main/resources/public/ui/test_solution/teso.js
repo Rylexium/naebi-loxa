@@ -17,8 +17,8 @@ function f2() {
 		alert(`У вас ${sum}/${max_sum}`);
 	}
 }
-function f3() {
-	obj = JSON.parse('[{"type":1,"comment":"one answer","question":"2+2=?","answers":["1", "2", "3", "4", "5"],"ranswer": "4","points": 10},{"type":3,"comment":"matching","question":"choose right: a)2+2=?;  b)1+1=?;  c)3+3=?;","answers":["1", "2", "3", "4", "5", "6"],"ranswer": "426","points": 100},{"type":4,"comment":"write correct","question":"7+7=?","answers":[],"ranswer": "49","points": 200}]');
+function f3(jsonFromServer) {
+	obj = JSON.parse(jsonFromServer)'[{"type":1,"comment":"one answer","question":"2+2=?","answers":["1", "2", "3", "4", "5"],"ranswer": "4","points": 10},{"type":3,"comment":"matching","question":"choose right: a)2+2=?;  b)1+1=?;  c)3+3=?;","answers":["1", "2", "3", "4", "5", "6"],"ranswer": "426","points": 100},{"type":4,"comment":"write correct","question":"7+7=?","answers":[],"ranswer": "49","points": 200}]');
 	var Table = document.getElementById("dynamic");
 	Table.innerHTML = "";
 	var per = document.querySelector('#dynamic');
@@ -76,7 +76,8 @@ function postData1() {
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.onload = function() {
-		f4(this.responseText);
+		alert(this.responseText)
+		//f3(this.responseText);
 	};
 	var data = JSON.stringify(tests);
 	xhr.send(data);

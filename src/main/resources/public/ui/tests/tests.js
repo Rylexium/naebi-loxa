@@ -5,13 +5,10 @@ function f2() {
 	alert("Goodbye!");
 }
 function f3() { <!--  document.getElementById(“subject”).value; -->
-	var per1 = document.querySelector('#subject').value;
-	var per2 = document.querySelector('#grade').value;
-	var tests = {
-		subject: per1,
-		grade: per2
-	};
-	postData(tests);
+	postData({
+	        "subject": document.querySelector('#subject').value,
+	        "grade": document.querySelector('#grade').value
+	        });
 }
 function f4(jss) {
 	var obj = JSON.parse(jss);
@@ -33,16 +30,15 @@ function f4(jss) {
 		per.appendChild(row);
 	}
 }
-function postData(tests) {
+function postData(dictSubjectAndGrade) {
 	var xhr = new XMLHttpRequest();
-	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
+	var url = "/tests";
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.onload = function() {
 		f4(this.responseText);
 	};
-	var data = JSON.stringify(tests);
-	xhr.send(data);
+	xhr.send(JSON.stringify(dictSubjectAndGrade));
 }
 function stringToHash(string) {
 	var hash = 0;

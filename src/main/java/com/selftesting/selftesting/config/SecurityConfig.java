@@ -20,7 +20,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        // нужно всё сделать как для обычного веб-контролера
         return http
                 .csrf()
                 .disable()
@@ -37,9 +36,6 @@ public class SecurityConfig {
                     .authenticationProvider(authenticationProvider)
                     .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
-
-//        return http.csrf().disable().authorizeHttpRequests()
-//                .requestMatchers("/**").permitAll().and().build();
     }
 
 }
