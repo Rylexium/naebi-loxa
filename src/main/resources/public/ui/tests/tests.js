@@ -23,10 +23,9 @@ function f4(jss) {
 	for (let i = 0; i < obj.length; i++) 
 	{		
 		let row = document.createElement('tr');
-		row.id = obj[i].id_test;
+		row.id = obj[i].idTest;
 		row.onclick = function() {
-		const id = this.id;
-		alert(id);
+            alert(this.id); //по этому id получаю тест
 		};
 		let data_1 = document.createElement('td');
 		data_1.innerHTML = obj[i].name;

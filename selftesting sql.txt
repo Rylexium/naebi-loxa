@@ -11,15 +11,15 @@ ALTER TABLE IF EXISTS public.users
 	
 INSERT INTO public.users(
 	login, password)
-	VALUES ('admin', 'eafbc1b2c6b3cdc68123c28923d898e415fb2338bb7af38927cea615e0883196'); --qwerty123
+	VALUES ('admin', 'c7ac7aa36fd0951bacaea18803f77e6e9d88789002e0ef0edbacc82cc6f9f1a6'); --qwerty123
 	
 INSERT INTO public.users(
 	login, password)
-	VALUES ('apelsinka', 'fb0727a9fe60cdeebe718798047c0a29421f65618ae529bdf2a5f65b934dfc88'); --limonka
+	VALUES ('apelsinka', '401d1782483d0bf780f94aa4ac2ff6ef9733eb93e2d1ff0f816fcd29fc694f7c'); --limonka
 	
 INSERT INTO public.users(
 	login, password)
-	VALUES ('limonka', '778656a6e7a8331250099d30f6b227bcf60433a6c60d427ebd4f17de28465897'); --apelsinka
+	VALUES ('limonka', 'be0fdea593d7115514977bde2fc148f6fca8da25e4a53f9a727dfc7e6f20fd12'); --apelsinka
 	
 	
 CREATE TABLE public.type_question
@@ -261,4 +261,50 @@ INSERT INTO public.test(
 );
 
 ALTER TABLE IF EXISTS public.question
+    OWNER to postgres;
+	
+	
+	
+	
+	
+	
+CREATE TABLE public.test_user
+(
+    id_result smallint NOT NULL,
+    login character varying(32) NOT NULL,
+    id_test smallint NOT NULL,
+    score smallint NOT NULL,
+    PRIMARY KEY (id_result),
+    FOREIGN KEY (login)
+        REFERENCES public.users (login) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        NOT VALID,
+    FOREIGN KEY (id_test)
+        REFERENCES public.test (id_test) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        NOT VALID
+);
+
+ALTER TABLE IF EXISTS public.test_user
+    OWNER to postgres;
+	
+	
+	
+	
+CREATE TABLE public.answer_options
+(
+    id_answer smallint NOT NULL,
+    id_question smallint NOT NULL,
+    answer character varying(128) NOT NULL,
+    PRIMARY KEY (id_answer),
+    FOREIGN KEY (id_question)
+        REFERENCES public.question (id_question) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        NOT VALID
+);
+
+ALTER TABLE IF EXISTS public.answer_options
     OWNER to postgres;
