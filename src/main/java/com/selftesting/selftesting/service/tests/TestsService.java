@@ -2,6 +2,7 @@ package com.selftesting.selftesting.service.tests;
 
 import com.selftesting.selftesting.dto.AnswerDto;
 import com.selftesting.selftesting.dto.QuestionDto;
+import com.selftesting.selftesting.dto.ResultTestDto;
 import com.selftesting.selftesting.entity.Test;
 import com.selftesting.selftesting.entity.TestUser;
 import com.selftesting.selftesting.repo.AnswerOptionsRepository;
@@ -25,8 +26,19 @@ public class TestsService {
         return testRepository.findByIdSubjectAndIdGrade(idSubject, idGrade);
     }
 
-    public void saveTestResult(String login, Short idTest, Short points) {
+    public void saveTestResult(String login, Short idTest, String points) {
         testUserRepository.save(new TestUser(login, idTest, points));
+    }
+
+    public Object getTestsResult(String login) {
+        List<ResultTestDto> resultTestDtoList = new ArrayList<>();
+        for(Map<String, Object> test : testRepository.findResultTestByLogin(login)) {
+            resultTestDtoList.add(ResultTestDto.builder()
+                            .name((String) test.get("name"))
+                            .score((String) test.get("score"))
+                    .build());
+        }
+        return resultTestDtoList;
     }
 
     public Object findTestById(Integer idTest){

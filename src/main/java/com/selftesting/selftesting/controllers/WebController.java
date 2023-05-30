@@ -25,6 +25,11 @@ public class WebController {
         return "ui/test_solution/teso.html";
     }
 
+    @GetMapping("/uste")
+    public String uste() {
+        return "ui/user_test/uste.html";
+    }
+
     @GetMapping("/adus")
     public String adus() {
         return "ui/admin_users/adus.html";

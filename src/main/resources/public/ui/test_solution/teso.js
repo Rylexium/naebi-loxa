@@ -19,7 +19,7 @@ function f2() {
 		var json = {
 		    idTest: sessionStorage.getItem("id_test"),
 		    login: sessionStorage.getItem("login"),
-		    points: sum
+		    points: `${sum}/${max_sum}`
 		}
 		postData2(JSON.stringify(json))
 		//отсюда отправлять результат

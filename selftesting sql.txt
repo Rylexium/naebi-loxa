@@ -270,10 +270,10 @@ ALTER TABLE IF EXISTS public.question
 	
 CREATE TABLE public.test_user
 (
-    id_result smallint NOT NULL,
+    id_result integer NOT NULL GENERATED ALWAYS AS IDENTITY,
     login character varying(32) NOT NULL,
     id_test smallint NOT NULL,
-    score smallint NOT NULL,
+    score character varying NOT NULL,
     PRIMARY KEY (id_result),
     FOREIGN KEY (login)
         REFERENCES public.users (login) MATCH SIMPLE

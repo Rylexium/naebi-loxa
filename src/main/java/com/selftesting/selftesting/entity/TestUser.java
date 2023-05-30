@@ -11,9 +11,9 @@ public class TestUser {
     Long idResult;
     String login;
     Short idTest;
-    Short score;
+    String score;
 
-    public TestUser(String login, Short idTest, Short score) {
+    public TestUser(String login, Short idTest, String score) {
         this.idTest = idTest;
         this.login = login;
         this.score = score;

@@ -6,5 +6,5 @@ import lombok.Data;
 public class RequestPostResultTest {
     String login;
     Short idTest;
-    Short points;
+    String points;
 }

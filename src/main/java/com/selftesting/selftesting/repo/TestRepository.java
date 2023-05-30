@@ -18,4 +18,10 @@ public interface TestRepository extends JpaRepository<Test, Integer> {
             "\ttext, answer, points, id_type_question from question where id_test=:id_test", nativeQuery = true)
     List<Map<String, Object>> findTestById(@Param("id_test") Integer idTest);
 
+
+    @Query(value = "select id_result, login, \n" +
+            "\t(select name from test where test.id_test=test_user.id_test) as name, \n" +
+            "\tscore from test_user where login=:login", nativeQuery = true)
+    List<Map<String, Object>> findResultTestByLogin(@Param("login") String login);
+
 }

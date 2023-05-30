@@ -26,4 +26,9 @@ public class TestsController {
         testsService.saveTestResult(request.getLogin(), request.getIdTest(), request.getPoints());
     }
 
+    @GetMapping("api/tests/result")
+    public Object getTestResult(@RequestParam(value="login") String login) {
+        return testsService.getTestsResult(login);
+    }
+
 }

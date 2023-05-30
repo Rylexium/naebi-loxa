@@ -25,8 +25,9 @@ public class SecurityConfig {
                 .disable()
                     .authorizeHttpRequests()
                     .requestMatchers("/auth/**", "/registration/**", "/login-form/**",
-                            "/tests/**", "/adte/**", "/adus/**", "/teso/**",
-                            "/ui/tests/**", "/ui/admin_tests/**", "/ui/admin_users/**", "/ui/test_solution/**").permitAll()
+                            "/tests/**", "/adte/**", "/adus/**", "/teso/**", "/uste/**",
+                            "/ui/tests/**", "/ui/admin_tests/**", "/ui/admin_users/**",
+                            "/ui/test_solution/**", "/ui/user_test/**").permitAll()
                     .anyRequest()
                     .authenticated()
                 .and()

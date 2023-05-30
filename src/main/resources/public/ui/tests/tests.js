@@ -1,7 +1,7 @@
 function f1() {
     sessionStorage.setItem("subject", document.querySelector('#subject').value)
     sessionStorage.setItem("grade", document.querySelector('#grade').value)
-	window.location.href = '/teso';
+	window.location.href = '/uste';
 }
 function f2() {
 	alert("Goodbye!");
