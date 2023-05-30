@@ -6,10 +6,11 @@ function f2() {
     sessionStorage.removeItem("is_admin");
 }
 function f3() {
-	postData1();
+	getAllTests();
 }
-function f4() {
-	var obj = JSON.parse('[{"id": "1", "name": "101"},{"id": "532165121", "name": "53235"}]');
+function f4(jsonAllTestsFromServer) {
+	//var obj = JSON.parse('[{"id": "1", "name": "101"},{"id": "532165121", "name": "53235"}]');
+	var obj = JSON.parse(jsonAllTestsFromServer)
 	var Table = document.getElementById("dynamic");
 	Table.innerHTML = "";
 	var per = document.querySelector('#dynamic');
@@ -27,7 +28,6 @@ function f4() {
 					id : this.parentNode.id
 				};
 			var data = JSON.stringify(user);
-			postData2(data);
 		};                                        
 		butText = document.createTextNode("Отчёт");
 		button.appendChild(butText);
@@ -35,10 +35,8 @@ function f4() {
 		button = document.createElement("BUTTON");                   
 		button.onclick = function() {
 			if (confirm('Вы уверены, что хотите удалить этот тест?')){
-				var tests = {
-					id : this.parentNode.id
-				};
-				alert(JSON.stringify(tests));/*Удаление пользоваетеля*/
+                deleteTest(this.parentNode.id);
+                location.reload()
 			}
 		};
 		row.id = obj[i].id;
@@ -48,26 +46,24 @@ function f4() {
 		per.appendChild(row);
 	}
 }
-function postData1() {
+function getAllTests() {
 	var xhr = new XMLHttpRequest();
-	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
-	xhr.open("POST", url, true);
+	var url = "/api/tests/all";
+	xhr.open("GET", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
 	xhr.onload = function() {
 		f4(this.responseText);
 	};
-	var data = JSON.stringify(tests);
-	xhr.send(data);
+	xhr.send(null);
 }
-function postData2(data) {
+function deleteTest(idTest) {
 	var xhr = new XMLHttpRequest();
-	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
-	xhr.open("POST", url, true);
+	var url = "/api/tests?idTest=" + idTest;
+	xhr.open("DELETE", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.onload = function() {
-		return this.responseText;
-	};
-	xhr.send(data);
+    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
+	xhr.send(null);
 }
 if(sessionStorage.getItem("token") == null)
     window.location.href = '/auth';

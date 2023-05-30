@@ -20,6 +20,11 @@ public class TestsController {
         return testsService.findTestById(idTest);
     }
 
+    @DeleteMapping("api/tests")
+    public void deleteTest(@RequestParam(value="idTest") Short idTest) {
+        testsService.deleteTest(idTest);
+    }
+
 
     @PostMapping("api/tests/result")
     public void saveTestResult(@RequestBody RequestPostResultTest request) {
@@ -29,6 +34,11 @@ public class TestsController {
     @GetMapping("api/tests/result")
     public Object getTestResult(@RequestParam(value="login") String login) {
         return testsService.getTestsResult(login);
+    }
+
+    @GetMapping("api/tests/all")
+    public Object getTestsAll() {
+        return testsService.getAllTests();
     }
 
 }

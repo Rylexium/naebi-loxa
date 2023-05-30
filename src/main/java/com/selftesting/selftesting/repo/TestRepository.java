@@ -2,8 +2,10 @@ package com.selftesting.selftesting.repo;
 
 import com.selftesting.selftesting.entity.Test;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -24,4 +26,9 @@ public interface TestRepository extends JpaRepository<Test, Integer> {
             "\tscore from test_user where login=:login", nativeQuery = true)
     List<Map<String, Object>> findResultTestByLogin(@Param("login") String login);
 
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM public.test\n" +
+            "\tWHERE id_test=:id_test", nativeQuery = true)
+    void deleteTestByIdTest(@Param("id_test") Short idTest);
 }
