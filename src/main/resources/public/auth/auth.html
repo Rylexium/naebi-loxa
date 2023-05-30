@@ -51,14 +51,26 @@
                     console.log(response.token);
 
 
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", "/atest", true);
+                    /*var xhr = new XMLHttpRequest();
+                    xhr.open("GET", "/tests", true);
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.setRequestHeader("Authorization", 'Bearer ' + response.token);
                     xhr.onload = function() {
                         alert(this.responseText)
                     }
-                    xhr.send(null)
+                    xhr.send(null)*/
+                    $.ajax({
+                       url: "/tests",
+                       type: "GET",
+                       beforeSend: function(xhr) {
+                           xhr.setRequestHeader('Authorization', 'Bearer ' + response.token);
+                       },
+                       success: function() {
+                           setTimeout(function() {
+                               window.location.href = '/tests';
+                           }, 1000);
+                       }
+                   });
 
                 }
                 document.getElementById("fieldPass").value = ""
@@ -84,6 +96,6 @@
                     </a></p>
                 </form>
             </div>
-        -</div>
+        </div>
     </body>
 </html>
