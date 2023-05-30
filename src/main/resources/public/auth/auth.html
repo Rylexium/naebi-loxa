@@ -12,6 +12,8 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
+    //sessionStorage.removeItem("token");
+
     function isAllCorrect(){
         if(isCorrect(document.getElementById("fieldLogin"))
             && isCorrect(document.getElementById("fieldPass"))) {
@@ -48,12 +50,12 @@
                     document.getElementById("fieldLogin").value = ""
                     sessionStorage.removeItem("fieldLogin")
                     sessionStorage.setItem("token", response.token);
-                    alert(response.token)
                     window.location.href = '/tests';
-
+                }
+                else {
+                    alert(response.message);
                 }
                 document.getElementById("fieldPass").value = ""
-                alert(response.message);
             };
         var data = JSON.stringify({
                 "fieldLogin": document.getElementById("fieldLogin").value,

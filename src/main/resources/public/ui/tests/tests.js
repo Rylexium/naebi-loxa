@@ -1,8 +1,10 @@
 function f1() {
-	alert("Hello!");
+	window.location.href = '/teso';
 }
 function f2() {
 	alert("Goodbye!");
+	sessionStorage.removeItem("token");
+	window.location.href = '/auth';
 }
 function f3() { <!--  document.getElementById(“subject”).value; -->
 	postData({
