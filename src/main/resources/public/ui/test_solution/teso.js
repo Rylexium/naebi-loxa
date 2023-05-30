@@ -21,7 +21,7 @@ function f2() {
 		    login: sessionStorage.getItem("login"),
 		    points: `${sum}/${max_sum}`
 		}
-		postData2(JSON.stringify(json))
+		postTestResult(JSON.stringify(json))
 		//отсюда отправлять результат
         window.location.href = '/tests';
 	}
@@ -90,7 +90,7 @@ function getTestData() {
 	};
 	xhr.send(null);
 }
-function postData2(data) {
+function postTestResult(data) {
     alert(data)
 	var xhr = new XMLHttpRequest();
 	var url = "/api/tests/result";

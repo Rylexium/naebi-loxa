@@ -8,7 +8,7 @@ function f2() {
 	window.location.href = '/auth';
 }
 function f3() {
-	postData1();
+	getTestsResultByLogin();
 }
 function f4(jsonResultTestFromServer) {
 	var obj = JSON.parse(jsonResultTestFromServer)
@@ -29,7 +29,7 @@ function f4(jsonResultTestFromServer) {
 		per.appendChild(row);
 	}
 }
-function postData1() {
+function getTestsResultByLogin() {
 	var xhr = new XMLHttpRequest();
 	var url = "/api/tests/result?login=" + sessionStorage.getItem("login");
 	xhr.open("GET", url, true);
@@ -39,14 +39,4 @@ function postData1() {
 		f4(this.responseText);
 	};
 	xhr.send(null);
-}
-function postData2(data) {
-	var xhr = new XMLHttpRequest();
-	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.onload = function() {
-		return this.responseText;
-	};
-	xhr.send(data);
 }

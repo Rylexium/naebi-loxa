@@ -6,7 +6,7 @@ function f2() {
     sessionStorage.removeItem("is_admin");
 }
 function f3() {
-	postData1();
+	getAllUsers();
 }
 function f4(jsonUsersFromServer) {
 	var obj = JSON.parse(jsonUsersFromServer);
@@ -28,7 +28,6 @@ function f4(jsonUsersFromServer) {
 					login : this.parentNode.id
 				};
 			var data = JSON.stringify(user);
-			postData2(data);
 		};                                        
 		butText = document.createTextNode("Отчёт");
 		button.appendChild(butText);
@@ -39,7 +38,7 @@ function f4(jsonUsersFromServer) {
 				var user = {
 					login : this.parentNode.id
 				}; /*Удаление пользоваетеля*/
-				postData2({ login : this.parentNode.id })
+				deleteUserByLogin({ login : this.parentNode.id })
                 location.reload()
 			}
 		};
@@ -50,7 +49,7 @@ function f4(jsonUsersFromServer) {
 		per.appendChild(row);
 	}
 }
-function postData1() { //получение список пользователей
+function getAllUsers() { //получение список пользователей
 	var xhr = new XMLHttpRequest();
 	var url = "/api/admin/users";
 	xhr.open("GET", url, true);
@@ -61,17 +60,14 @@ function postData1() { //получение список пользовател�
 	};
 	xhr.send(null);
 }
-function postData2(data) { //запрос на удаление пользователя по id
+function deleteUserByLogin(data) { //запрос на удаление пользователя по id
 	var xhr = new XMLHttpRequest();
-	var url = "/api/admin/users"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
+	var url = "/api/admin/users";
 	xhr.open("DELETE", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
     alert(JSON.stringify(data))
-	xhr.onload = function() {
-		//pass after deleted user
-	};
-	xhr.send(JSON.stringify(data));
+	xhr.send(null);
 }
 if(sessionStorage.getItem("token") == null)
     window.location.href = '/auth';
