@@ -36,19 +36,19 @@ ALTER TABLE IF EXISTS public.type_question
 
 INSERT INTO public.type_question(
 	id_type, name, prompt)
-	VALUES (1, 'Выберите один правильный ответ', '');
+	VALUES (1, 'Выберите один правильный ответ', 'Выберите один правильный ответ из списка');
 
 INSERT INTO public.type_question(
 	id_type, name, prompt)
-	VALUES (2, 'Выберите несколько правильных ответов', '');
+	VALUES (2, 'Выберите несколько правильных ответов', 'Выберите несколько правильных ответов и запишите в порядке возрастания слитно');
 
 INSERT INTO public.type_question(
 	id_type, name, prompt)
-	VALUES (3, 'Сопоставьте значения из двух списков', '');
+	VALUES (3, 'Сопоставьте значения из двух списков', 'Сопоставьте значения из двух списков и запишите в порядке сопоставления слитно');
 
 INSERT INTO public.type_question(
 	id_type, name, prompt)
-	VALUES (4, 'Напишите свой ответ', '');
+	VALUES (4, 'Напишите свой ответ', 'Напишите свой ответ маленькими буквами');
 
 
 
@@ -240,7 +240,7 @@ INSERT INTO public.test(
 	
 	
 	
-(
+CREATE TABLE public.question(
     id_question integer NOT NULL,
     id_test integer NOT NULL,
     text character varying(512) NOT NULL,

@@ -21,8 +21,22 @@ function f2() {
 	}
 }
 function f3(jsonFromServer) {
-    //obj = JSON.parse(jsonFromServer)
-	obj = JSON.parse('[{"type":1,"comment":"one answer","question":"2+2=?","answers":["1", "2", "3", "4", "5"],"ranswer": "4","points": 10},{"type":3,"comment":"matching","question":"choose right: a)2+2=?;  b)1+1=?;  c)3+3=?;","answers":["1", "2", "3", "4", "5", "6"],"ranswer": "426","points": 100},{"type":4,"comment":"write correct","question":"7+7=?","answers":[],"ranswer": "49","points": 200}]');
+    obj = JSON.parse(jsonFromServer)
+	//obj = JSON.parse('
+	//[{"type":1,"comment":"one answer","question":"2+2=?","answers":["1", "2", "3", "4", "5"],"ranswer": "4","points": 10},
+	//{"type":3,"comment":"matching","question":"choose right: a)2+2=?;  b)1+1=?;  c)3+3=?;","answers":["1", "2", "3", "4", "5", "6"],"ranswer": "426","points": 100},
+	//{"type":4,"comment":"write correct","question":"7+7=?","answers":[],"ranswer": "49","points": 200}]');
+
+
+    /*
+    select id_question,
+      	(select prompt from type_question where id_type=id_type_question) as _comment,
+      	text,
+      	answer,
+      	points
+    from question where id_test=3
+    */
+	//select * from test where id_test=3
 	var Table = document.getElementById("dynamic");
 	Table.innerHTML = "";
 	var per = document.querySelector('#dynamic');
@@ -74,10 +88,10 @@ function f3(jsonFromServer) {
 		per.appendChild(row)
 	}	
 }
-function postData1() {
+function getTestData() {
 	var xhr = new XMLHttpRequest();
 	var url = "/login-form"; /*ЛЁША, БЛЯТЬ. НУЖНО ПОМЕНЯТЬ!!!!*/
-	xhr.open("POST", url, true);
+	xhr.open("GET", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
 	xhr.onload = function() {
