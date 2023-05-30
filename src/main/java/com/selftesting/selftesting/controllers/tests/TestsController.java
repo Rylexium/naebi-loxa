@@ -1,12 +1,9 @@
 package com.selftesting.selftesting.controllers.tests;
 
-import com.selftesting.selftesting.entity.Test;
 import com.selftesting.selftesting.request.RequestSubjectAndGrade;
 import com.selftesting.selftesting.service.tests.TestsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor

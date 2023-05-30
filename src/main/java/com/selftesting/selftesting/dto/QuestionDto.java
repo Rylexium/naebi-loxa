@@ -10,8 +10,8 @@ import java.util.List;
 public class QuestionDto {
     Short type;
     String comment;
-    Integer question;
-    List<String> answers;
+    String question;
+    List<AnswerDto> answers;
     String ranswer;
     Short points;
 }

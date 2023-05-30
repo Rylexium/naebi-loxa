@@ -15,7 +15,7 @@ public interface TestRepository extends JpaRepository<Test, Integer> {
 
     @Query(value = "select id_question, \n" +
             "\t(select prompt from type_question where id_type=id_type_question) as comment,\n" +
-            "\ttext, answer, points, id_type_question from question where id_test=3", nativeQuery = true)
+            "\ttext, answer, points, id_type_question from question where id_test=:id_test", nativeQuery = true)
     List<Map<String, Object>> findTestById(@Param("id_test") Integer idTest);
 
 }
