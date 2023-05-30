@@ -20,26 +20,25 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // нужно всё сделать как для обычного веб-контролера
-        http
+//        // нужно всё сделать как для обычного веб-контролера
+        return http
                 .csrf()
                 .disable()
                     .authorizeHttpRequests()
-                    .requestMatchers("/auth/**", "/registration/**", "/login-form/**")
-                    .permitAll()
+                    .requestMatchers("/auth/**", "/registration/**",
+                            "/ui/**", "/login-form/**").permitAll()
                     .anyRequest()
                     .authenticated()
-//                .and()
-//                    .formLogin().loginPage("/auth")
                 .and()
                     .sessionManagement()
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                     .authenticationProvider(authenticationProvider)
                     .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                .httpBasic();
+                .build();
 
-        return http.build();
+//        return http.csrf().disable().authorizeHttpRequests()
+//                .requestMatchers("/**").permitAll().and().build();
     }
 
 }
