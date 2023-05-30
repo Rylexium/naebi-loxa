@@ -9,7 +9,8 @@ function f3() {
 	postData1();
 }
 function f4(jsonUsersFromServer) {
-	var obj = JSON.parse(jsonUsersFromServer); //JSON.parse('[{"login": "1"},{"login": "532165121"}]');
+	var obj = JSON.parse(jsonUsersFromServer);
+	//var obj = JSON.parse('[{"login": "1"},{"login": "532165121"}]');
 	var Table = document.getElementById("dynamic");
 	Table.innerHTML = "";
 	var per = document.querySelector('#dynamic');
@@ -39,7 +40,7 @@ function f4(jsonUsersFromServer) {
 					login : this.parentNode.id
 				}; /*Удаление пользоваетеля*/
 				postData2({ login : this.parentNode.id })
-
+                location.reload()
 			}
 		};
 		row.id = obj[i].login;
