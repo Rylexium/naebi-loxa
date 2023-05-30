@@ -62,7 +62,7 @@ function f3(jsonFromServer) {
 				tex = document.createTextNode(`${j+1}) `);         
 				inElement.appendChild(tex);
 				tex = document.createElement("text");                   
-				tex = document.createTextNode(obj[i].answers[j]);         
+				tex = document.createTextNode(obj[i].answers[j].answer);
 				inElement.appendChild(tex);
 				tex = document.createElement("br");												 
 				inElement.appendChild(tex);

@@ -386,3 +386,48 @@ INSERT INTO public.question(id_question, id_test, text, id_type_question, answer
 INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (46, 20, '9');
 INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (47, 20, '17');
 INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (48, 20, '3');
+
+
+
+
+INSERT INTO public.test(id_test, name, id_subject, id_grade) VALUES (5, 'Вводные слова', 1, 8);
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (42, 5, 'В каком предложении выделенное слово является вводным? Знаки препинания расставленны не полностью', 1, '1', 5);
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (99, 42, 'Остаток бала тянулся КАЗАЛОСЬ бесконечно.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (100, 42, 'Село КАЗАЛОСЬ пустым.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (101, 42, 'Мите КАЗАЛОСЬ что горе, свалившееся на его плечи, сделало его глубоким стариком.');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (43, 5, 'В каком предожении выделенное слово является вводным? Знаки препинания не расставленны', 1, '2', 5);
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (102, 43, 'Сельчане собирались лениво ОДНАКО пришли все.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (103, 43, 'Как быстро ОДНАКО въедаются в сознание корабельные привычки!');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (104, 43, 'Пробовали они добиться ответа у малыша ОДНАКО добились немного.');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (44, 5, 'В каком предложении выделенное слово является вводным? Знаки препинания расставленны не полностью', 1, '1', 5);
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (105, 44, 'Паренёк ВИДНО не знал, с кем он имеет дело.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (106, 44, 'Ясно и отчётлииво было ВИДНО каждое отдельное облачко.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (107, 44, 'По всем признакам ВИДНО было, что горы кончаются.');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (45, 5, 'В каком предложении выделенное слово является вводным? Знаки препинания раставлены не полностью', 1, '2', 5);
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (108, 45, 'Немного найдётся на земле людей, внешность которых так ВЕРНО соответствовала бы фамилии.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (109, 45, 'Несколько раз Александр говорил, что видел его где-то на митинге, но домой Колька не приходил ВЕРНО боялся.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (110, 45, 'Нашёлся Ихтиандр. Я ВЕРНО тогда сказал: он был на потонувшем корабле.');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (46, 5, 'В каком предложени выделенное слово является вводным? Знаки препинания расставлены не полностью', 1, '3', 5);
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (111, 46, 'Разговор у нас завязывается ЕСТЕСТВЕННО и свободно, тем более что путь, как выясняется, нам предстоит неблизкий.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (112, 46, 'Жермен задумалась, полураскрыв губы, всё у неё получалось ЕСТЕСТВЕННО даже слишком.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (113, 46, 'Все Кузьмича знают и возражать ЕСТЕСТВЕННО не решаются.');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (47, 5, 'В каком предложении выделенное слово является вводным? Знаки препинания расставлены не полностью', 1, '2', 5);
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (114, 47, 'Как всё-таки много ЗНАЧИТ первый в жизни корабль, на котором ты - командир!');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (115, 47, 'Сегодня Варвара работает в дневную смену ЗНАЧИТ домой она вернётся часов в шесть.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (116, 47, 'Увлечнный толкованием с морским драконом, я даже не сразу понял, что это ЗНАЧИТ.');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (48, 5, 'В каком предложении выделенное слово является водным? Знаки препинания расставлены не полностью', 1, '1', 5);
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (117, 48, 'А где КСТАТИ ваш противогаз, товарищ майор?');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (118, 48, 'Комнаты соединены потайными дверьми, что может оказаться КСТАТИ.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (119, 48, 'Молодцов приказал искать новые ходы сообщения с поверхностью, и тайник во дворе Ивановых оказался как нельзя КСТАТИ.');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (49, 5, 'В каком предложении выделенное слово является вводным? Знаки препинания расставлены не полностью', 1, '2', 5);
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (120, 49, 'Текст радиограмм систематически искажается и не всегда МОЖЕТ БЫТЬ прочитан.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (121, 49, 'Но если туман быстр двигается - это признак затяжного дождя и МОЖЕТ БЫТЬ тайфуна.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (122, 49, 'Мы хорошо знали путь и так, но какая же экспедиция МОЖЕТ БЫТЬ без карты!');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (50, 5, 'В каком предложении выделенное слово является вводным? Знаки препинания расставлены не полностью', 1, '2', 5);
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (123, 50, 'Было ОЧЕВИДНО что какой-то браконьер в первый же день убил животное.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (124, 50, 'Шиянов ОЧЕВИДНО был в серьёзном затруднении.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (125, 50, 'По разговорам взрослых и по всем прдположениям было ОЧЕВИДНО что арестованных увели из села.');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (51, 5, 'В каком предложении выделенное слово является вводным? Знаки препинания расставлены не полностью', 1, '3', 5);
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (126, 51, 'Мне было бы стыдно ПРИЗНАТЬСЯ Косте, что меня не отпускают.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (127, 51, 'Лучшее, что вы можете сделать, это ПРИЗНАТЬСЯ и всё рассказать.');
+INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (128, 51, 'Вначае я ПРИЗНАТЬСЯ побаивался: а вдруг произойдёт столкновение!');
