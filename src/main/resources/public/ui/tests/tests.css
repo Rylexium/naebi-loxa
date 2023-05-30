@@ -157,16 +157,31 @@
 	color: #ffffff;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	border-spacing: 20px;
+	width: 1260px;
+	height: 650px;
 	font-family: "Roboto", sans-serif;
 	font-size: 30px;
 	color: #ffffff;
+	display: block;
+	overflow-x: auto;
+	white-space: nowrap;
+	overflow: scroll; /* Scrollbar are always visible */
+	overflow: auto;   /* Scrollbar is displayed as it's needed */
 }
-.tab_form {
-	
-}
+td {
+	padding-left: 20px;
+    background: #0e92ba;
+    border: 3px;
+    border-color: #0C88AD;
+    text-align: left;
+    width: 1260px;
+	height: 100px;
+	white-space: normal;
+   }
 body { /*Используется*/
 background-image: url(/auth/Back.png);
 background-position: top center;

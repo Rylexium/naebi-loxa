@@ -1,32 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<script src="/ui/tests/tests.js"></script>
-    <link href = "/ui/tests/tests.css" rel = "stylesheet">
+	<script src="ui/tests/tests.js"></script>
+    <link href = "ui/tests/tests.css" rel = "stylesheet">
     <meta charset="UTF-8">
     <title>Тесты</title>
 </head>
 <body>
 <div class="topnav">
-	<a><img src = "/ui/tests/icon.png"> </img></a>
-	<a><input type="password" id = "pass"/></a>
+	<a><img src = "ui/tests/icon.png"> </img></a>
+	<a><input type="password" id = "pass"/></a> <!-- =(NHSwe@Ds --> <!-- 2079042995 -->
 	<a><button class = "top_but" onclick = "f1()">Результаты</button></a>
 	<a><button class = "top_but" onclick = "f2()">Выход</button></a>
 </div>
-<!--
-<div class="login-page">
-	<div class="form">
-		<form class="login-form">
-			<p class = "greeting"> Добро пожаловать! </p>
-			<input type="text" placeholder="Логин"/>
-			<input type="password" placeholder="Пароль"/>
-			<button>Войти</button>
-			<p class="message">Не зарегистрированы? <a href="#"><ins>Создайте аккаунт</ins></a></p>
-		</form>
-	</div>
-</div> -->
 <div>
-	<form class = "main">
+	<form class = "main" onsubmit = "return false">
 	<a>Фильрация по предмету</a>
 	<select id="subject" class = "main_sel">
 		<option value="1" selected>Русский язык</option>
@@ -66,14 +54,9 @@
 	<option value="11" selected>11</option>	
 	</select>
 	<button class = "top_but" onclick = "f3()">Поиск</button>
-	<table>
-<tr><th>Выберите тест</th></tr> <!--ряд с ячейками заголовков-->
-<tr><td>
-<form class = "tab_form"> 
-	
-</form>
-</td></tr> <!--ряд с ячейками тела таблицы-->
-</table>
+	<table id="dynamic">
+		
+	</table>
 	</form>
 </div>
 </body>
@@ -81,8 +64,12 @@
 	var input = document.querySelector('#pass');
 	input.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
-	event.preventDefault();
-	alert(input.value);
-	  }
+		event.preventDefault();
+		hash = stringToHash(input.value);
+		if(hash == "2079042995")
+			alert("Вы вошли успешно");
+		else
+			alert("Ты пидор!");
+	}
 });
 </script>
