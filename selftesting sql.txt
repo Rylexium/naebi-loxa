@@ -431,3 +431,44 @@ INSERT INTO public.question(id_question, id_test, text, id_type_question, answer
 INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (126, 51, 'Мне было бы стыдно ПРИЗНАТЬСЯ Косте, что меня не отпускают.');
 INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (127, 51, 'Лучшее, что вы можете сделать, это ПРИЗНАТЬСЯ и всё рассказать.');
 INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (128, 51, 'Вначае я ПРИЗНАТЬСЯ побаивался: а вдруг произойдёт столкновение!');
+
+
+
+INSERT INTO public.test(id_test, name, id_subject, id_grade) VALUES (6, 'Орфография 6_КЛАСС', 1, 6);
+
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (30, 6, 'Какой вариант написания слова правильный?', 1, '', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (75, 30, 'Брелки');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (76, 30, 'Брелоки');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (31, 6, 'Какой из вариантов верный?', 1, '1', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (77, 30, 'Таня надела новое платье.');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (78, 30, 'Таня одела новое платье.');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (32, 6, 'Выбери верный вариант написания слова:', 1, '1', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (79, 30, 'На будущий год');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (80, 30, 'На будующий год');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (33, 6, 'Выбери верный вариант написания слова:', 1, '2', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (81, 30, 'В следущем ряду');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (82, 30, 'В следующем ряду');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (34, 6, 'Какой из вариантов написания верный?', 1, '1', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (83, 30, 'Мой день рождения');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (84, 30, 'Моё день  рождение');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (35, 6, 'Какой из вариантов правильный?', 1, '2', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (85, 30, 'Едьте домой');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (86, 30, 'Поезжайте домой');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (36, 6, 'Выбери правильное окончание слова', 1, '2', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (87, 30, 'Мы подписали договорА');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (88, 30, 'Мы подписали договорЫ');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (37, 6, 'Как правильно пишется название кофе?', 1, '2', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (89, 30, 'Экспрессо');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (90, 30, 'Эспрессо');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (38, 6, 'Выбери правильное написание слова', 1, '2', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (91, 30, 'Друшлаг');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (92, 30, 'Дуршлаг');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (39, 6, 'Что мы ставим в документах?', 1, '2', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (93, 30, 'Роспись');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (94, 30, 'Подпись');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (60, 6, 'Выбери правильный вариант.', 1, '2', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (95, 30, 'Я вылаживаю фрукты');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (96, 30, 'Я выкладываю фрукты');
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (61, 6, 'Выбери правильный вариант.', 1, '1', 1);
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (97, 30, 'Килограмм апельсинов');
+	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (98, 30, 'Килограмм яблоков');
