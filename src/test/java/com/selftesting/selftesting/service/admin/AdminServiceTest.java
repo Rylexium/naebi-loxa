@@ -27,7 +27,7 @@ class AdminServiceTest {
     }
 
     @Test
-    void getAllUsers() throws Exception {
+    void getAllUsers() {
         Assert.isTrue(adminService.getAllUsers().size() != 0, "Не вернулись пользователи");
 
         int previousSize = adminService.getAllUsers().size();

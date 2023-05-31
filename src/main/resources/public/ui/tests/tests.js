@@ -1,6 +1,4 @@
 function f1() {
-    sessionStorage.setItem("subject", document.querySelector('#subject').value)
-    sessionStorage.setItem("grade", document.querySelector('#grade').value)
 	window.location.href = '/uste';
 }
 function f2() {
@@ -10,6 +8,8 @@ function f2() {
 	window.location.href = '/auth';
 }
 function f3() { <!--  document.getElementById(“subject”).value; -->
+    sessionStorage.setItem("subject", document.querySelector('#subject').value)
+    sessionStorage.setItem("grade", document.querySelector('#grade').value)
 	postData({
 	        "subject": document.querySelector('#subject').value,
 	        "grade": document.querySelector('#grade').value
