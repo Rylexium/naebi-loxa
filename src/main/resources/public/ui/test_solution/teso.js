@@ -91,7 +91,6 @@ function getTestData() {
 	xhr.send(null);
 }
 function postTestResult(data) {
-    alert(data)
 	var xhr = new XMLHttpRequest();
 	var url = "/api/tests/result";
 	xhr.open("POST", url, true);
