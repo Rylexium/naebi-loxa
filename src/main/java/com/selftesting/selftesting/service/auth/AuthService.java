@@ -3,7 +3,6 @@ package com.selftesting.selftesting.service.auth;
 import com.selftesting.selftesting.entity.Users;
 import com.selftesting.selftesting.repo.UsersRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,7 +16,7 @@ public class AuthService {
         return usersRepository.findByLoginAndPassword(login, password) != null;
     }
 
-    public boolean is_user_exists(String login) {
+    public boolean isUserExists(String login) {
         return usersRepository.findByLogin(login) != null;
     }
 

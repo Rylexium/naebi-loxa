@@ -12,6 +12,9 @@ ALTER TABLE IF EXISTS public.users
 INSERT INTO public.users(
 	login, password)
 	VALUES ('admin', 'c7ac7aa36fd0951bacaea18803f77e6e9d88789002e0ef0edbacc82cc6f9f1a6'); --qwerty123
+
+Insert INTO public.users(login, password)
+    VALUES('test_user', 'c7ac7aa36fd0951bacaea18803f77e6e9d88789002e0ef0edbacc82cc6f9f1a6')
 	
 INSERT INTO public.users(
 	login, password)
