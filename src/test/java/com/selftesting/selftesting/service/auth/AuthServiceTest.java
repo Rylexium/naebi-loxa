@@ -60,6 +60,11 @@ class AuthServiceTest {
     void registration() {
         authService.registration("test_user123", Keccak256("1234567890"));
         Assert.isTrue(authService.isUserExists("test_user123"), "Пользователь не был зарегистрирован");
+
+        authService.registration("test_user123", Keccak256("1234567893"));
+        Assert.isTrue(authService.registration("test_user123", Keccak256("1234567893")).
+                        equals("Пользователь с таким логином уже существует!"),
+                "Удалось зарегистрировать существующего пользователя");
         adminService.deleteUserById("test_user123");
     }
 }

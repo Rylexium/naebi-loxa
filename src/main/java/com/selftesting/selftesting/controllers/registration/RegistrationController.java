@@ -12,12 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RegistrationController {
     private final AuthService authService;
     @PostMapping("/regi")
-    public String registration(@RequestBody RequestLoginAndPass requestLoginAndPass) {
-        if(authService.isUserExists(requestLoginAndPass.getFieldLogin())) {
-            return "Пользователь с таким логином уже существует!";
-        }
-
-        authService.registration(requestLoginAndPass.getFieldLogin(), requestLoginAndPass.getFieldPass());
-        return "Регистрация произошла успешна!";
+    public String registration(@RequestBody RequestLoginAndPass requestLoginAndPass) throws Exception {
+        return authService.registration(requestLoginAndPass.getFieldLogin(), requestLoginAndPass.getFieldPass());
     }
 }

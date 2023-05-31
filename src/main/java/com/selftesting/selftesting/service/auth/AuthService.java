@@ -25,7 +25,11 @@ public class AuthService {
     }
 
 
-    public void registration(String login, String password) {
+    public String registration(String login, String password) {
+        if(isUserExists(login))
+            return "Пользователь с таким логином уже существует!";
+
         usersRepository.save(new Users(login, password));
+        return "Регистрация произошла успешна!";
     }
 }
