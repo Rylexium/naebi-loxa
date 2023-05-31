@@ -24,10 +24,7 @@ function f4(jsonUsersFromServer) {
 		var butText   = null;
 		button = document.createElement("BUTTON");                   
 		button.onclick = function() {
-			var user = {
-					login : this.parentNode.id
-				};
-			var data = JSON.stringify(user);
+            getTestsByLogin(this.parentNode.id)
 		};                                        
 		butText = document.createTextNode("Отчёт");
 		button.appendChild(butText);
@@ -69,6 +66,37 @@ function deleteUserByLogin(data) { //запрос на удаление поль
     alert(JSON.stringify(data))
 	xhr.send(null);
 }
+
+function getTestsByLogin(login) {
+	var xhr = new XMLHttpRequest();
+	var url = "/api/tests/user?login=" + login;
+	xhr.open("GET", url, true);
+	xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"))
+    xhr.onload = function() {
+        if(this.responseText.length !== 2) { //если что-то пришло
+            fa(this.responseText);
+        }
+    };
+	xhr.send(null);
+}
+function fa(jss) {
+    //var data = JSON.parse('[{"score": "23/32","login": "admin"},{"score": "5/61","login": "admin"}]');
+    var data = JSON.parse(jss);
+    var mas = [["Тест", "Результат"]];
+    for (let i = 0; i < data.length; i++)
+    {
+        mas.push([data[i].name, data[i].score]);
+    }
+    var res = `Всего количество прохождений: ${data.length}`;
+    mas.push([res, ""]);
+    var workbook = XLSX.utils.book_new();
+    var worksheet = XLSX.utils.aoa_to_sheet(mas);
+    workbook.SheetNames.push("First");
+    workbook.Sheets["First"] = worksheet;
+    XLSX.writeFile(workbook, "report_adus.xlsx");
+}
+
 if(sessionStorage.getItem("token") == null)
     window.location.href = '/auth';
 if(sessionStorage.getItem("is_admin") === null)

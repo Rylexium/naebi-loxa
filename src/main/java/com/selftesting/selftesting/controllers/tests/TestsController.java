@@ -41,4 +41,14 @@ public class TestsController {
         return testsService.getAllTests();
     }
 
+    @GetMapping("api/tests/user")
+    public Object getTestsUser(@RequestParam(value="login") String login) {
+        return testsService.getTestsByLogin(login);
+    }
+
+    @GetMapping("api/user/tests")
+    public Object getTestsUser(@RequestParam(value="idTest") Short idTest) {
+        return testsService.getLoginByIdTest(idTest);
+    }
+
 }

@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +34,32 @@ public class TestsService {
 
     public void deleteTest(Short idTest) {
         testRepository.deleteTestByIdTest(idTest);
+    }
+
+    public List<Map<String, String>> getLoginByIdTest(Short idTest) {
+        List<Map<String, String>> mapList = new ArrayList<>();
+        for (Map<String, String> login : testUserRepository.getLoginByIdTest(idTest)){
+            mapList.add(new HashMap<>() {
+                {
+                    put("login", login.get("login"));
+                    put("score", login.get("score"));
+                }
+            });
+        }
+        return mapList;
+    }
+
+    public List<Map<String, String>> getTestsByLogin(String login) {
+        List<Map<String, String>> mapList = new ArrayList<>();
+        for (Map<String, String> name : testUserRepository.getTestsByLogin(login)){
+            mapList.add(new HashMap<>() {
+                {
+                    put("name", name.get("text"));
+                    put("score", name.get("score"));
+                }
+            });
+        }
+        return mapList;
     }
 
     public Object getAllTests() {
