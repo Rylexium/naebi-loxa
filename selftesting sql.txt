@@ -466,10 +466,10 @@ INSERT INTO public.question(id_question, id_test, text, id_type_question, answer
 INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (39, 6, 'Что мы ставим в документах?', 1, '2', 1);
 	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (93, 39, 'Роспись');
 	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (94, 39, 'Подпись');
-INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (60, 6, 'Выбери правильный вариант.', 1, '2', 1);
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (40, 6, 'Выбери правильный вариант.', 1, '2', 1);
 	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (95, 40, 'Я вылаживаю фрукты');
 	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (96, 40, 'Я выкладываю фрукты');
-INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (61, 6, 'Выбери правильный вариант.', 1, '1', 1);
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (41, 6, 'Выбери правильный вариант.', 1, '1', 1);
 	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (97, 41, 'Килограмм апельсинов');
 	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (98, 41, 'Килограмм яблоков');
 
