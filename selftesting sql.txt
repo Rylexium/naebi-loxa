@@ -439,7 +439,7 @@ INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (128, 5
 
 INSERT INTO public.test(id_test, name, id_subject, id_grade) VALUES (6, 'Орфография 6_КЛАСС', 1, 6);
 
-INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (30, 6, 'Какой вариант написания слова правильный?', 1, '', 1);
+INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (30, 6, 'Какой вариант написания слова правильный?', 1, '2', 1);
 	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (75, 30, 'Брелки');
 	INSERT INTO public.answer_options(id_answer, id_question, answer) VALUES (76, 30, 'Брелоки');
 INSERT INTO public.question(id_question, id_test, text, id_type_question, answer, points) VALUES (31, 6, 'Какой из вариантов верный?', 1, '1', 1);
