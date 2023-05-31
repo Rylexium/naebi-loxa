@@ -47,13 +47,19 @@ function postData(dictSubjectAndGrade) {
 	xhr.send(JSON.stringify(dictSubjectAndGrade));
 }
 
+function restoreState() {
+    if(sessionStorage.getItem("subject") !== null) {
+        document.getElementById("subject").value = sessionStorage.getItem("subject");
+    }
+
+    if(sessionStorage.getItem("grade") !== null) {
+        document.getElementById("grade").value = sessionStorage.getItem("grade");
+    }
+    f3()
+}
+
 if(sessionStorage.getItem("token") === null)
     window.location.href = '/auth';
 
 sessionStorage.removeItem("is_admin")
 
-//if(sessionStorage.getItem("subject") !== null)
-//    document.getElementById('subject').getElementsByTagName('option')[sessionStorage.getItem("subject")].selected = 'selected'
-//
-//if(sessionStorage.getItem("grade") !== null)
-//    document.getElementById('grade').getElementsByTagName('option')[sessionStorage.getItem("grade")].selected = 'selected'
